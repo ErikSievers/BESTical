@@ -22,7 +22,7 @@ function getAllEvents(){
         method : 'GET',
         uri : 'https://private.best.eu.org/events/eventList.jsp',
         headers: {
-            'Cookie': `username=${config.username}; password=${config.password}`
+            'Cookie': `username=${process.env.username || config.username}; password=${process.env.password || config.password}`
         }
     };
     return request(options);
