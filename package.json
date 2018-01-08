@@ -1,0 +1,21 @@
+{
+  "name": "bestical",
+  "version": "1.0.0",
+  "description": "An ICAL for BEST",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Erik Sievers",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "config": "^1.29.1",
+    "express": "^4.16.2",
+    "http": "0.0.0",
+    "ical-generator": "^0.2.10",
+    "node-schedule": "^1.3.0",
+    "request-promise": "^4.2.2"
+  }
+}
