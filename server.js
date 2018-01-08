@@ -1,6 +1,6 @@
 const   Promise         = require('bluebird'),
+        express         = require('express'),
         ical            = require('ical-generator'),
-        http            = require('http'),
         config          = require('config'),
         schedule        = require('node-schedule'),
         request         = require('request-promise');
@@ -11,9 +11,13 @@ let cal;
 makeCalendar(); 
 schedule.scheduleJob('* * 4 * *', makeCalendar); //Update calendar at 4 in the morning
 
-http.createServer(function(req, res) {
+const app = express();
+
+app.use( (req, res) => {
     cal.serve(res);
-}).listen(process.env.PORT || 3000, '127.0.0.1', function() {
+})
+
+app.listen(process.env.PORT || 3000, '127.0.0.1', function() {
     console.log('Server running');
 });
 
