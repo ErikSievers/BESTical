@@ -17,8 +17,8 @@ app.use( (req, res) => {
     cal.serve(res);
 })
 
-app.listen(process.env.PORT || 3000, '127.0.0.1', function() {
-    console.log('Server running');
+app.listen(process.env.PORT || 3000, function () {
+    console.log('Example app listening on port ' + (process.env.PORT || 3000));
 });
 
 function getAllEvents(){
