@@ -32,7 +32,7 @@ function getAllEvents(){
     return request(options);
 }
 function makeCalendar() {
-    cal = ical({domain: '', name: "Erik's BEST ical"});
+    cal = ical({url: 'https://best-ical.herokuapp.com/', name: "Internal BEST events"});
     getAllEvents().then(result => {
         let rows = result.match(/<tr[\d\D]*?<\/tr>/g);
         for(let row of rows){
@@ -50,9 +50,7 @@ function makeCalendar() {
                         start: fromDate,
                         end: toDate,
                         summary: name,
-                        description: id,
-                        location: 'unclear',
-                        url: 'http://google.com/'
+                        url: 'https://private.best.eu.org/events/event.jsp?event=' + id
                     });
                 }
             }
